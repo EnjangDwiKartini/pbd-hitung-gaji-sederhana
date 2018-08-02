@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include part/head %>
+<body>
+<div class="container">
+  <center>
+    <h2>Data Gaji Karyawan</h2>
+    <a href="/">Input Data</a>
+  </center>
+  <br>         
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Nama</th>
+        <th>Alamat</th>
+        <th>Jabatan</th>
+        <th>Gaji Pokok</th>
+        <th>Tunjangan</th>
+        <th>Pajak (5%)</th>
+        <th>Gaji Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i < data.length; i++) { %>
+      <tr>
+        <td><%= i+1 %></th>
+        <td><%= data[i].nm %></td>
+        <td><%= data[i].alamat %></td>
+        <td><%= data[i].jabatan %></td>
+        <td><%= data[i].gp %></td>
+        <td><%= data[i].tunj %></td>
+        <td><%= data[i].pjk %></td>
+        <td><%= data[i].gt %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

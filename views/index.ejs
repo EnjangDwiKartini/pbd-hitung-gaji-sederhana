@@ -1,0 +1,86 @@
+<% include part/head %>
+<script type="text/javascript">
+function hitung()
+{
+        if(document.getElementById("gp").value == "")
+        {
+        alert("Gaji Pokok Tidak Boleh Kosong");
+        document.getElementById("gp").focus;
+        return false;
+        }
+var gaji = document.getElementById("gp").value;
+        var a = eval(gaji) * 0.2;
+        var b = eval(gaji) * 0.05;
+        var c = eval(gaji) + eval(a) - eval(b);
+        document.getElementById("tunj").value = a;
+        document.getElementById("pjk").value = b;
+        document.getElementById("gt").value = c;
+        }
+        
+</script>  
+  <body>
+    <div class="container">
+      <center>
+        <h2 style="margin-top:  50px;" >PERHITUNGAN GAJI KARYAWAN </h2>
+        <a href="/data">Data Gaji</a>
+      </center>
+      <form class="form-horizontal" method="POST" action="/gaji">
+        <div class="form-group" style="margin-top:  50px;">
+            <label class="control-label col-sm-2" for="nm">Nama Karyawan:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nm" placeholder="Masukkan nama karyawan" name="nm">
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="alamat">Alamat:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat" name="alamat">
+              </div>
+            </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="jabatan">Jabatan:</label>
+              <div class="col-sm-10">
+                  <select class="form-control" size="1" id="jabatan" name="jabatan">
+                      <option>Direktur</option>
+                      <option>Manager</option>
+                      <option>Accounting</option>
+                      <option>Marketing</option>
+                      <option>Staff Produksi</option>
+                      <option>Personalia</option> </select>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gp">Gaji Pokok:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="gp" placeholder="Masukkan gaji pokok" name="gp">
+                  </div>
+                </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="tunj">Tunjangan:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tunj" placeholder="" name="tunj" readonly>
+                  </div>
+                </div> 
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pjk">Pajak (5%):</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="pjk" placeholder="" name="pjk" readonly>
+                  </div>
+                </div>  
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gt">Gaji Total:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="gt" placeholder="" name="gt" readonly>
+                  </div>
+                </div> 
+            <input type="button" class="btn" value="Hitung" onclick="hitung()">
+            <input type="reset" class="btn" value="Reset" >
+            <input type="submit" class="btn" value="Simpan">
+            </form>
+          
+            <% include part/footer %>
+        </div>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+
