@@ -11,9 +11,12 @@
     -   Marketing       = Rp 8.000.000
     -   Staff Produksi  = Rp 5.000.000
     -   Personalia      = Rp 9.500.000
+    
     Untuk menghitung Total gaji karyawan menggunakan aplikasi ini harus mengisikan besar Gaji Pokok secara manual. Gaji total diperoleh dari jumlah Gaji Pokok ditambah dengan Tunjangan sebesar 20% dan dikurangi pajak sebesar 5%. 
     
     Selain untuk menghitung, aplikasi ini juga dapat menyimpan data yang sudah dihitung tersebut ke dalam Database dan menampilkan dalam bentuk tabel.
+        Aplikasi ini belum terdapat aksi untuk Hapus atau Edit Data , jadi jika akan menghapus atau edit data menggunakan terminal dengan mengetikkan perintah mongodb.
+    
 * Pembuat " Enjang Dwi Kartini " (NIM: 163210011)
 * Development tools 
     ~~~
@@ -24,4 +27,9 @@
     Text Editor : Visual Studio Code 
     Web Browser : Chrome 
     ~~~
-* 
+* instalasi development tools 
+    NodeJS, Visual Studio Code , MongoDB
+* Lisensi 
+    NodeJS  : https://nodejs.org/en/download/
+    Visual Studio Code  : https://code.visualstudio.com/Download
+    MongoDB     : https://www.mongodb.org/dl/win32/i386
