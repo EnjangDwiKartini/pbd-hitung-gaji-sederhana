@@ -36,7 +36,45 @@ app.post('/gaji', (req, res) => {
     res.redirect('/data')
   })
 });
+app.delete('/delete', (req, res) => {
+  db.collection('gaji').findOneAndDelete({name: req.body.name},
+  (err, result) => {
+    if (err) return res.send(500, err)
+    res.send({message: 'A quote got deleted'})
+  })
+});
 
+
+app.use(bodyParser.json())
+
+app.put('/update', (req, res) => {
+  db.collection('gaji')
+  .findOneAndUpdate({name: ''}, {
+    $set: {
+      name: req.body.name,
+      quote: req.body.quote
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true
+  }, (err, result) => {
+    if (err) return res.send(err)
+    res.send(result)
+  })
+})
+
+
+app.get('/edit', function (req, res) {
+  db.collection('gaji').findOne({name: req.body.name}, function(err, items) {
+          if(err) {
+              return console.log('findOne error:', err);
+          }
+          else {
+            res.json(items);
+            res.render('index.ejs')
+          }
+      })
+})
 var db
 
 MongoClient.connect('mongodb://localhost:27017/gaji', (err, database) => {
